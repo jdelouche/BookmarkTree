@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:pretty="http://ocpsoft.com/prettyfaces"
+	xmlns:p="http://primefaces.org/ui">
+
+
+	<h:form id="formdelete">
+		<p:dialog widgetVar="dlgdelete" header="Delete">
+			<p:panelGrid styleClass="noBorders">
+				<p:row>
+					<p:column>
+						<h:outputLabel for="dlgdeleteurlname">Name: </h:outputLabel>
+					</p:column>
+					<p:column>
+						<h:outputText id="dlgdeleteurlname" value="#{crudDoc.name}">
+						</h:outputText>
+					</p:column>
+				</p:row>
+				<p:row>
+					<p:column>
+						<h:outputLabel for="dlgdeleteurl">URL: </h:outputLabel>
+					</p:column>
+					<p:column>
+						<h:outputText id="dlgdeleteurl" value="#{crudDoc.url}"></h:outputText>
+					</p:column>
+				</p:row>
+				<p:row>
+					<p:column colspan="2" style="text-align:center">
+						<p:commandButton id="dlgdelete" value="Delete"
+							actionListener="#{crudDoc.deleteNode()}"
+							action="pretty:viewBookmarkTree"
+							update=":formtree, :browser, :formdelete" />
+					</p:column>
+				</p:row>
+			</p:panelGrid>
+
+		</p:dialog>
+	</h:form>
+
+
+
+
+	<h:form id="formcreate">
+		<p:dialog widgetVar="dlgcreate" header="Add">
+			<p:panelGrid styleClass="noBorders">
+				<p:row>
+					<p:column>
+						<h:outputLabel for="dlgcreateurlname">Name: </h:outputLabel>
+					</p:column>
+					<p:column>
+						<p:inputText id="dlgcreateurlname" value="#{crudDoc.name}">
+						</p:inputText>
+					</p:column>
+				</p:row>
+				<p:row>
+					<p:column>
+						<h:outputLabel for="dlgcreateurl">URL: </h:outputLabel>
+					</p:column>
+					<p:column>
+						<p:inputText id="dlgcreateurl" value="#{crudDoc.url}"></p:inputText>
+					</p:column>
+				</p:row>
+				<p:row>
+					<p:column colspan="2" style="text-align:center">
+						<p:commandButton id="dlgcreate" value="Add"
+							actionListener="#{crudDoc.createNode()}"
+							action="pretty:viewBookmarkTree" update=":formtree, :browser" />
+					</p:column>
+				</p:row>
+			</p:panelGrid>
+
+		</p:dialog>
+	</h:form>
+
+
+	<h:form id="formupdate">
+		<p:dialog widgetVar="dlgupdate" header="Rename">
+			<p:panelGrid styleClass="noBorders">
+				<p:row>
+					<p:column>
+						<h:outputLabel for="dlgupdateurlname">Name: </h:outputLabel>
+					</p:column>
+					<p:column>
+						<p:inputText id="dlgupdateurlname" value="#{crudDoc.name}">
+						</p:inputText>
+					</p:column>
+				</p:row>
+				<p:row>
+					<p:column>
+						<h:outputLabel for="dlgupdateurl">URL: </h:outputLabel>
+					</p:column>
+					<p:column>
+						<p:inputText id="dlgupdateurl" value="#{crudDoc.url}"></p:inputText>
+					</p:column>
+				</p:row>
+				<p:row>
+					<p:column colspan="2" style="text-align:center">
+						<p:commandButton id="dlgupdate" value="Rename"
+							actionListener="#{crudDoc.updateNode()}"
+							action="pretty:viewBookmarkTree" update=":formtree, :browser" />
+					</p:column>
+				</p:row>
+			</p:panelGrid>
+		</p:dialog>
+	</h:form>
+
+	<h:form id="dlgmenu">
+		<p:contextMenu id="menu" for=":formtree">
+
+			<p:menuitem value="Add" onclick="dlgcreate.show()"
+				icon="ui-icon-open" />
+
+			<p:menuitem value="Rename" onclick="dlgupdate.show()"
+				icon="ui-icon-open" />
+
+			<p:menuitem value="Copy" actionListener="#{crudDoc.copyNode()}"
+				icon="ui-icon-open" />
+
+			<p:menuitem value="Paste" actionListener="#{crudDoc.pasteNode()}"
+				icon="ui-icon-open" update=":formtree"/>
+
+			<p:menuitem value="Delete" onclick="dlgdelete.show()"
+				icon="ui-icon-close" />
+
+		</p:contextMenu>
+
+	</h:form>
+</ui:composition>
+
+

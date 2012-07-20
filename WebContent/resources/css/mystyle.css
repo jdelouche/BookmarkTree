@@ -1,0 +1,4 @@
+.noBorders tr, .noBorders td, .noBorders tree {
+    background: none !important;
+    border: none !important;
+}

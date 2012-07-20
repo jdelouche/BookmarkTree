@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:pretty="http://ocpsoft.com/prettyfaces"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<h:head>
+	<h:outputStylesheet library="css" name="mystyle.css" />
+</h:head>
+<h:body>
+
+	<p:layout fullPage="true">
+
+		<p:layoutUnit position="center" Header="Browser" closable="true"
+			collapsible="true">
+			<ui:include src="display.xhtml"></ui:include>
+		</p:layoutUnit>
+
+		<p:layoutUnit position="west" size="200" header="Bookmarks"
+			resizable="true" closable="true" collapsible="true">
+
+			<ui:include src="crud.xhtml"></ui:include>
+
+			<ui:include src="tree.xhtml"></ui:include>
+
+		</p:layoutUnit>
+
+	</p:layout>
+
+</h:body>
+</html>

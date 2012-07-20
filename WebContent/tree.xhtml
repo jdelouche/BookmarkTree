@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:pretty="http://ocpsoft.com/prettyfaces"
+	xmlns:p="http://primefaces.org/ui">
+
+
+	<h:form id="formtree">
+
+		<p:growl id="messages" showDetail="true" />
+
+		<p:tree id="bookmarkTree" value="#{ treeController.root }" var="doc"
+			dynamic="true" selection="#{treeController.selectedNode}" styleClass="noBorders">
+
+			<p:treeNode>
+				<pretty:link id="nodeValue" mappingId="viewBookmarkTree">
+					<f:param value="#{doc.fullPath}" />
+							#{doc.name}
+							</pretty:link>
+				<p:tooltip for="nodeValue" value="#{doc.url}" showEffect="fade"
+					hideEffect="fade">
+				</p:tooltip>
+			</p:treeNode>
+
+		</p:tree>
+
+
+
+	</h:form>
+</ui:composition>
