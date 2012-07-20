@@ -28,29 +28,31 @@ public class UrlDocument {
 
 	public void pathUpdate() {
 		Path fullPathProxy = new Path();
-		// Path parentPath = new Path();
+		Path parentPathProxy = new Path();
 		if (isTop()) {
 			// setParentPath(null);
 			// setFullPath(null);
-			// parentPath.setValue(null);
+			parentPathProxy.setValue(null);
 			fullPathProxy.setValue(null);
 		} else {
 			if (isRoot()) {
 				// setParentPath("");
 				// setFullPath(name);
-				// parentPath.setValue("");
+				parentPathProxy.setValue("");
 				fullPathProxy.setValue(name);
 			} else {
 				// setParentPath(((UrlDocument) getParentNode().getData())
 				// .getFullPath());
 				// setFullPath(parentPath + "/" + name);
-				// parentPath.setValue(((UrlDocument) getParentNode().getData())
-				// .getFullPath());
+				parentPathProxy.setValue(((UrlDocument) getParentNode()
+						.getData()).getFullPath());
+				fullPathProxy.setValue(parentPathProxy.getValue());
 				fullPathProxy.add(name);
 			}
 		}
 
 		fullPath = fullPathProxy.getValue();
+		parentPath = parentPathProxy.getValue();
 	}
 
 	public String getFullPath() {
