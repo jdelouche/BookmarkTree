@@ -1,4 +1,4 @@
-package org.primefaces.examples.domain;
+package com.softeoz.bookmarktree.domain;
 
 public class Path {
 

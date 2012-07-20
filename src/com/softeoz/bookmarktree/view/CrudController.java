@@ -1,11 +1,12 @@
-package org.primefaces.examples.view;
+package com.softeoz.bookmarktree.view;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
-import org.primefaces.examples.domain.UrlDocument;
 import org.primefaces.model.DefaultTreeNode;
 import org.primefaces.model.TreeNode;
+
+import com.softeoz.bookmarktree.domain.UrlDocument;
 
 @ManagedBean(name = "crudDoc")
 @SessionScoped
