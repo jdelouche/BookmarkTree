@@ -27,19 +27,30 @@ public class UrlDocument {
 	}
 
 	public void pathUpdate() {
+		Path fullPathProxy = new Path();
+		// Path parentPath = new Path();
 		if (isTop()) {
-			setParentPath(null);
-			setFullPath(null);
+			// setParentPath(null);
+			// setFullPath(null);
+			// parentPath.setValue(null);
+			fullPathProxy.setValue(null);
 		} else {
 			if (isRoot()) {
-				setParentPath("");
-				setFullPath(name);
+				// setParentPath("");
+				// setFullPath(name);
+				// parentPath.setValue("");
+				fullPathProxy.setValue(name);
 			} else {
-				setParentPath(((UrlDocument) getParentNode().getData())
-						.getFullPath());
-				setFullPath(parentPath + "/" + name);
+				// setParentPath(((UrlDocument) getParentNode().getData())
+				// .getFullPath());
+				// setFullPath(parentPath + "/" + name);
+				// parentPath.setValue(((UrlDocument) getParentNode().getData())
+				// .getFullPath());
+				fullPathProxy.add(name);
 			}
 		}
+
+		fullPath = fullPathProxy.getValue();
 	}
 
 	public String getFullPath() {
@@ -64,6 +75,7 @@ public class UrlDocument {
 
 	public void setName(String name) {
 		this.name = name;
+		pathUpdate();
 	}
 
 	public String getUrl() {
