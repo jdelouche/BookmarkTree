@@ -62,10 +62,9 @@ public class TreeController {
 	}
 
 	public void setSelectedNode(TreeNode selectedNode) {
+		this.selectedNode.setSelected(false);
 		this.selectedNode = (DefaultTreeNode) selectedNode;
-		UrlDocument doc = (UrlDocument) selectedNode.getData();
-		crudDoc.setTreeControl(this);
-		crudDoc.setDoc(doc);
+		this.selectedNode.setSelected(true);
 
 	}
 
@@ -80,26 +79,22 @@ public class TreeController {
 
 	private void expandTree(TreeNode start, String[] path) {
 
-		int end = path.length;
-		int position = 0;
 		for (String item : path) {
-			position++;
 			for (TreeNode node : start.getChildren()) {
 				UrlDocument doc = (UrlDocument) node.getData();
 				if (doc.getName().matches(item)) {
-					if (position != end) {
-						node.setExpanded(true);
-						start = node;
-					} else {
-						selectedNode.setSelected(false);
-						setSelectedNode(node);
-						selectedNode.setSelected(true);
-						displayDoc.setDoc(doc);
-					}
+					node.getParent().setExpanded(true);
+					start = node;
 					break;
 				}
 			}
 		}
+		setSelectedNode(start);
+		UrlDocument doc = (UrlDocument) start.getData();
+		displayDoc.setDoc(doc);
+		crudDoc.setTreeControl(this);
+		crudDoc.setDoc(doc);
+
 	}
 
 	public TreeNode getRoot() {

@@ -27,25 +27,21 @@ public class UrlDocument {
 	}
 
 	public void pathUpdate() {
+
 		Path fullPathProxy = new Path();
 		Path parentPathProxy = new Path();
+
 		if (isTop()) {
-			// setParentPath(null);
-			// setFullPath(null);
 			parentPathProxy.setValue(null);
 			fullPathProxy.setValue(null);
 		} else {
 			if (isRoot()) {
-				// setParentPath("");
-				// setFullPath(name);
 				parentPathProxy.setValue("");
 				fullPathProxy.setValue(name);
 			} else {
-				// setParentPath(((UrlDocument) getParentNode().getData())
-				// .getFullPath());
-				// setFullPath(parentPath + "/" + name);
-				parentPathProxy.setValue(((UrlDocument) getParentNode()
-						.getData()).getFullPath());
+				UrlDocument parentDoc = (UrlDocument) getParentNode()
+						.getData();
+				parentPathProxy.setValue(parentDoc.getFullPath());
 				fullPathProxy.setValue(parentPathProxy.getValue());
 				fullPathProxy.add(name);
 			}
