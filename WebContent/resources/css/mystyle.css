@@ -1,4 +1,8 @@
-.noBorders tr, .noBorders td, .noBorders tree {
+.noBorders tr, .noBorders td {
     background: none !important;
     border: none !important;
+}
+
+.ui-tree {
+	border: none !important;
 }
