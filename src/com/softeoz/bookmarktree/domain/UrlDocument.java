@@ -2,6 +2,10 @@ package com.softeoz.bookmarktree.domain;
 
 import org.primefaces.model.TreeNode;
 
+/**
+ * @author jdelouche
+ * 
+ */
 public class UrlDocument {
 
 	private String name;
@@ -39,8 +43,7 @@ public class UrlDocument {
 				parentPathProxy.setValue("");
 				fullPathProxy.setValue(name);
 			} else {
-				UrlDocument parentDoc = (UrlDocument) getParentNode()
-						.getData();
+				UrlDocument parentDoc = (UrlDocument) getParentNode().getData();
 				parentPathProxy.setValue(parentDoc.getFullPath());
 				fullPathProxy.setValue(parentPathProxy.getValue());
 				fullPathProxy.add(name);

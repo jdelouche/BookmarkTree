@@ -8,6 +8,10 @@ import org.primefaces.model.TreeNode;
 
 import com.softeoz.bookmarktree.domain.UrlDocument;
 
+/**
+ * @author jdelouche
+ * 
+ */
 @ManagedBean(name = "crudDoc")
 @SessionScoped
 public class CrudController {

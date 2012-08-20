@@ -1,5 +1,9 @@
 package com.softeoz.bookmarktree.domain;
 
+/**
+ * @author jdelouche
+ * 
+ */
 public class Path {
 
 	private static final String PATH_SEPARATOR = "/";

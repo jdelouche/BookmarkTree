@@ -5,6 +5,10 @@ import javax.faces.bean.SessionScoped;
 
 import com.softeoz.bookmarktree.domain.UrlDocument;
 
+/**
+ * @author jdelouche
+ * 
+ */
 @ManagedBean(name = "displayDoc")
 @SessionScoped
 public class DisplayController {
