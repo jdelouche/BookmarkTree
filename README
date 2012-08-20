@@ -2,5 +2,5 @@ README
 
 author jdelouche
 
-Usage of Primefaces and Prettyfaces to create a bookmarkable tree for url.
+Usage of Primefaces and Prettyfaces to create a bookmarkable tree for urls.
 This example is using p:tree and p:treenode in combination with pretty:link and pretty-config.xml associated with url-mapping.
